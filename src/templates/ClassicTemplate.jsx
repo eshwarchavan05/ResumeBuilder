@@ -11,44 +11,55 @@ const ClassicTemplate = ({ data, accentColor }) => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto p-8 bg-white text-gray-800 leading-relaxed">
+        <div className="w-[794px] min-h-[1123px] mx-auto p-8 bg-white text-gray-800 leading-relaxed text-sm">
             {/* Header */}
-            <header className="text-center mb-8 pb-6 border-b-2" style={{ borderColor: accentColor }}>
-                <h1 className="text-3xl font-bold mb-2" style={{ color: accentColor }}>
-                    {data.personal_info?.full_name || "Your Name"}
-                </h1>
-
-                <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-600">
-                    {data.personal_info?.email && (
-                        <div className="flex items-center gap-1">
-                            <Mail className="size-4" />
-                            <span>{data.personal_info.email}</span>
-                        </div>
+            <header className="mb-6 pb-4 border-b-2" style={{ borderColor: accentColor }}>
+                <div className="flex items-center gap-5">
+                    {data.personal_info?.image && (
+                        <img
+                            src={data.personal_info.image}
+                            alt="Profile"
+                            className="w-20 h-20 rounded-full object-cover border-2 shrink-0"
+                            style={{ borderColor: accentColor }}
+                        />
                     )}
-                    {data.personal_info?.phone && (
-                        <div className="flex items-center gap-1">
-                            <Phone className="size-4" />
-                            <span>{data.personal_info.phone}</span>
+                    <div className="text-center flex-1">
+                        <h1 className="text-2xl font-bold mb-1" style={{ color: accentColor }}>
+                            {data.personal_info?.full_name || "Your Name"}
+                        </h1>
+                        <div className="flex flex-wrap justify-center gap-3 text-xs text-gray-600">
+                            {data.personal_info?.email && (
+                                <div className="flex items-center gap-1">
+                                    <Mail className="size-3" />
+                                    <span>{data.personal_info.email}</span>
+                                </div>
+                            )}
+                            {data.personal_info?.phone && (
+                                <div className="flex items-center gap-1">
+                                    <Phone className="size-3" />
+                                    <span>{data.personal_info.phone}</span>
+                                </div>
+                            )}
+                            {data.personal_info?.location && (
+                                <div className="flex items-center gap-1">
+                                    <MapPin className="size-3" />
+                                    <span>{data.personal_info.location}</span>
+                                </div>
+                            )}
+                            {data.personal_info?.linkedin && (
+                                <div className="flex items-center gap-1">
+                                    <Linkedin className="size-3" />
+                                    <span className="break-all">{data.personal_info.linkedin}</span>
+                                </div>
+                            )}
+                            {data.personal_info?.website && (
+                                <div className="flex items-center gap-1">
+                                    <Globe className="size-3" />
+                                    <span className="break-all">{data.personal_info.website}</span>
+                                </div>
+                            )}
                         </div>
-                    )}
-                    {data.personal_info?.location && (
-                        <div className="flex items-center gap-1">
-                            <MapPin className="size-4" />
-                            <span>{data.personal_info.location}</span>
-                        </div>
-                    )}
-                    {data.personal_info?.linkedin && (
-                        <div className="flex items-center gap-1">
-                            <Linkedin className="size-4" />
-                            <span className="break-all">{data.personal_info.linkedin}</span>
-                        </div>
-                    )}
-                    {data.personal_info?.website && (
-                        <div className="flex items-center gap-1">
-                            <Globe className="size-4" />
-                            <span className="break-all">{data.personal_info.website}</span>
-                        </div>
-                    )}
+                    </div>
                 </div>
             </header>
 

@@ -10,23 +10,33 @@ const MinimalTemplate = ({ data, accentColor }) => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto p-8 bg-white text-gray-900 font-light">
+        <div className="w-[794px] min-h-[1123px] mx-auto p-8 bg-white text-gray-900 font-light text-sm">
             {/* Header */}
-            <header className="mb-10">
-                <h1 className="text-4xl font-thin mb-4 tracking-wide">
-                    {data.personal_info?.full_name || "Your Name"}
-                </h1>
-
-                <div className="flex flex-wrap gap-6 text-sm text-gray-600">
-                    {data.personal_info?.email && <span>{data.personal_info.email}</span>}
-                    {data.personal_info?.phone && <span>{data.personal_info.phone}</span>}
-                    {data.personal_info?.location && <span>{data.personal_info.location}</span>}
-                    {data.personal_info?.linkedin && (
-                        <span className="break-all">{data.personal_info.linkedin}</span>
+            <header className="mb-8">
+                <div className="flex items-center gap-5">
+                    {data.personal_info?.image && (
+                        <img
+                            src={data.personal_info.image}
+                            alt="Profile"
+                            className="w-20 h-20 rounded-full object-cover shrink-0"
+                        />
                     )}
-                    {data.personal_info?.website && (
-                        <span className="break-all">{data.personal_info.website}</span>
-                    )}
+                    <div>
+                        <h1 className="text-3xl font-thin mb-2 tracking-wide">
+                            {data.personal_info?.full_name || "Your Name"}
+                        </h1>
+                        <div className="flex flex-wrap gap-4 text-xs text-gray-600">
+                            {data.personal_info?.email && <span>{data.personal_info.email}</span>}
+                            {data.personal_info?.phone && <span>{data.personal_info.phone}</span>}
+                            {data.personal_info?.location && <span>{data.personal_info.location}</span>}
+                            {data.personal_info?.linkedin && (
+                                <span className="break-all">{data.personal_info.linkedin}</span>
+                            )}
+                            {data.personal_info?.website && (
+                                <span className="break-all">{data.personal_info.website}</span>
+                            )}
+                        </div>
+                    </div>
                 </div>
             </header>
 

@@ -43,8 +43,8 @@ function App() {
                     <button
                         onClick={() => setMode("preview")}
                         className={`px-4 py-2 rounded ${mode === "preview"
-                                ? "bg-blue-600 text-white"
-                                : "bg-white border"
+                            ? "bg-blue-600 text-white"
+                            : "bg-white border"
                             }`}
                     >
                         Preview Mode
@@ -53,8 +53,8 @@ function App() {
                     <button
                         onClick={() => setMode("builder")}
                         className={`px-4 py-2 rounded ${mode === "builder"
-                                ? "bg-blue-600 text-white"
-                                : "bg-white border"
+                            ? "bg-blue-600 text-white"
+                            : "bg-white border"
                             }`}
                     >
                         Builder Mode
@@ -130,16 +130,30 @@ function App() {
                     )}
 
                     {/* PREVIEW */}
-                    <div
-                        id="resume"
-                        className="bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-200 min-h-[1000px]"
-                    >
-                        {TemplateComponent && (
-                            <TemplateComponent
-                                data={data}
-                                accentColor={data?.accent_color || "#14B8A6"}
-                            />
-                        )}
+                    <div className="flex justify-center">
+                        <div
+                            className="origin-top"
+                            style={{
+                                transform: "scale(0.7)",
+                                transformOrigin: "top center",
+                            }}
+                        >
+                            <div
+                                id="resume"
+                                className="bg-white shadow-2xl overflow-hidden border border-gray-200"
+                                style={{
+                                    width: "794px",
+                                    minHeight: "1123px",
+                                }}
+                            >
+                                {TemplateComponent && (
+                                    <TemplateComponent
+                                        data={data}
+                                        accentColor={data?.accent_color || "#14B8A6"}
+                                    />
+                                )}
+                            </div>
+                        </div>
                     </div>
 
                 </div>

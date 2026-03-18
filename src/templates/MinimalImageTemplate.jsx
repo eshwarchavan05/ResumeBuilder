@@ -1,9 +1,5 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 
-import viratpic from "../../assets/images/viratpic.jpeg";
-import dhonipic from "../../assets/images/dhonipic.jpeg";
-import eshpic from "../../assets/images/eshpic.jpeg";
-
 const MinimalImageTemplate = ({ data, accentColor }) => {
 
     const formatDate = (dateStr) => {
@@ -17,33 +13,21 @@ const MinimalImageTemplate = ({ data, accentColor }) => {
         });
     };
 
-    const getProfileImage = () => {
-        const name = data.personal_info?.full_name?.toLowerCase();
-
-        if (!name) return null;
-
-        if (name.includes("virat")) return viratpic;
-        if (name.includes("dhoni")) return dhonipic;
-        if (name.includes("eshwar")) return eshpic;
-
-        return null;
-    };
-
-    const profileImage = getProfileImage();
+    const profileImage = data.personal_info?.image || null;
 
     return (
-        <div className="max-w-5xl mx-auto bg-white text-zinc-800">
+        <div className="w-[794px] min-h-[1123px] mx-auto bg-white text-zinc-800 text-sm">
             <div className="grid grid-cols-3">
 
                 {/* Profile Image */}
-                <div className="col-span-1 py-10">
+                <div className="col-span-1 py-8">
 
                     {profileImage && (
-                        <div className="mb-6">
+                        <div className="mb-4">
                             <img
                                 src={profileImage}
                                 alt="Profile"
-                                className="w-32 h-32 object-cover rounded-full mx-auto"
+                                className="w-28 h-28 object-cover rounded-full mx-auto"
                                 style={{ background: accentColor + "70" }}
                             />
                         </div>
